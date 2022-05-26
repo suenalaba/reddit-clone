@@ -1,0 +1,22 @@
+# mutation Register($username: String! , $password: String! ) {
+#     register(options: {username: $username, password: $password}) {
+#       errors {
+#         field
+#         message
+#       }
+#       user {
+#         # id
+#         # username
+#         ...RegularUser
+#       }
+#     }
+#   }
+
+
+#after adding email field:
+
+mutation Register( $options: UsernamePassWordInput! ) {
+    register(options: $options) {
+      ...RegularUserReponse
+    }
+  }

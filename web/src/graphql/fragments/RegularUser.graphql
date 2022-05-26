@@ -1,0 +1,6 @@
+# make it easier to update user query since its use in multiple places, reduce coupling..
+#RegularUser is self defined name
+fragment RegularUser on User {
+  id
+  username
+}

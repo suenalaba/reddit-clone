@@ -1,0 +1,27 @@
+How session works and how data flows:
+
+req.session.userId = userId; -> storing some data into session
+-> take any data and send to redis
+
+{userId: 1} -> send that to redis
+
+1.
+#stored in redis as:
+give redis key -> redis give data
+sess: qwoeijwojerw -> {userId: 1}
+
+2.
+express-session middleware will set a cookie on my browser afdfosjfsojfosjfs
+cookie value is signed version of the key for redis
+
+3.
+when user makes a request
+afdfosjfsojfosjfs -> sent to server
+
+4.
+decrypt the cookie and get the key for reddis based on the secret
+afdfosjfsojfosjfs -> qwoeijwojerw
+
+5.
+make a request to redis using session key and get the data
+qwoeijwojerw -> {userId: 1}

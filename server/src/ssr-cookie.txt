@@ -1,0 +1,8 @@
+ssr (first time we go to a page its going to server side render)
+  for ssr request: browser -> next.js -> graphql api (browser send req will send cookie to nextjs to graphql)
+  cookie will be gone (wont be send to graphql api)
+  Solution: tell next.js to send cookie over to graphql api. ensure cookie flows.
+  for client side request: browser -> graphql api
+  (cookie will send to graphql api so we know who we are.)
+
+  **if graphql api has a cookie, then it can tell us whether we voted or not.

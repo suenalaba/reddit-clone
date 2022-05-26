@@ -1,0 +1,13 @@
+fragment PostSnippet on Post {
+  id
+  createdAt
+  updatedAt
+  title
+  points
+  textSnippet #so we don't load the whole text body but just the 50 characters
+  voteStatus
+  creator {
+    id #to fit normalised cache
+    username
+  }
+}

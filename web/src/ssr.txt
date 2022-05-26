@@ -1,0 +1,9 @@
+me -> browse http://localhost:3000
+make request -> next.js server
+which makes request to graphsql server -> localhost:4000
+-> building the HTML
+-> sending back to the your browser(the client)
+
+In Next.js, after you've loaded a single page, the pages after that are not SSR, it will switch
+eg, if click back, it will do client site routing to go back to home page. (load from browser since next.js will change cause it has loaded before)
+

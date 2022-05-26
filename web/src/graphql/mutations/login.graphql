@@ -1,0 +1,36 @@
+#after chain fragment
+mutation Login($usernameOrEmail: String!, $password: String!){
+  login(usernameOrEmail: $usernameOrEmail, password: $password) {
+    ...RegularUserReponse
+  }
+}
+
+# mutation Login($options: UsernamePassWordInput!){
+#   login(options: $options) {
+#     errors {
+#       field
+#       message
+#     }
+#     user {
+#       # id
+#       # username
+#       ...RegularUser
+#     }
+#   }
+# }
+
+# another possible way to do mutations is to just pass the UsernamePasswordInput variable
+
+#change to this after adding email field:
+# mutation Login($usernameOrEmail: String!, $password: String!){
+#   login(usernameOrEmail: $usernameOrEmail, password: $password) {
+#     errors {
+#       ...RegularError
+#     }
+#     user {
+#       # id
+#       # username
+#       ...RegularUser
+#     }
+#   }
+# }

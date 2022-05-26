@@ -1,0 +1,26 @@
+# query Posts($limit: Int!, $cursor:String) {
+#   posts (
+#     cursor: $cursor,
+#     limit: $limit
+#   ) {
+#     id
+#     createdAt
+#     updatedAt
+#     title
+#     # text
+#     textSnippet #so we don't load the whole text body but just the 50 characters
+#   }
+# }
+#Int! means int cannot be null, but String without ! means it can be null
+
+query Posts($limit: Int!, $cursor:String) {
+  posts (
+    cursor:$cursor,
+    limit: $limit
+  ) {
+    hasMore
+    posts {
+      ...PostSnippet
+  	}
+  }
+}

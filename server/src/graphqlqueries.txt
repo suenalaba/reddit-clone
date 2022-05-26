@@ -1,0 +1,77 @@
+{
+  hello
+}
+
+{
+  posts {
+    id
+    createdAt
+    updatedAt
+    title
+  }
+}
+
+{
+  post(id: 2) {
+    title
+  }
+}
+
+mutation {
+  createPost(title: "post from new apollo server") {
+    id
+    createdAt
+    updatedAt
+    title
+  }
+}
+
+
+mutation {
+  updatePost(id: 3, title: "bob") {
+    id
+    createdAt
+    updatedAt
+    title
+  }
+}
+
+mutation {
+  deletePost(id: 4)
+}
+
+//$ sign is a wildcard, and ! means not null string.
+mutation Register($username : String!, $password: String! ) {
+  register(options: {username: $username, password: $password}) { 
+    errors {
+      field
+      message
+    }
+    user {
+      id
+      createdAt
+      updatedAt
+      username
+    }
+  }
+}
+
+mutation {
+  login(options: {username: "ben", password: "ben"}) {
+    errors {
+      field
+      message
+    }
+    user {
+      id
+      username
+    }
+  }
+}
+
+{
+  me {
+    id
+    username
+  }
+}

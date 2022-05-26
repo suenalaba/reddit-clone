@@ -1,0 +1,11 @@
+mutation UpdatePost($id: Int!, $title: String!, $text: String!) {
+  updatePost(id: $id, title: $title, text: $text) {
+    id
+    title
+    text
+    textSnippet #good to select this because text snippet will change because of text
+  }
+}
+
+#when we update no need invalidate cache blah blah, cause we are getting a new post object back
+#so urql will automatically update the fields in the cache according to the post id.
